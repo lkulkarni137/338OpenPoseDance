@@ -84,8 +84,8 @@ def detect_footstrikes_from_y(y, fps, frame_nums, smooth_win=21, smooth_poly=3,
     if distance_frames is None:
         distance_frames = max(1, int(round(0.25 * fps)))
 
-    # local minima of y -> peaks of -y
-    peaks, _ = find_peaks(-y_s, prominence=prominence_px, distance=distance_frames)
+    # local maxima of y -> peaks of -y
+    peaks, _ = find_peaks(y_s, prominence=prominence_px, distance=distance_samples)
 
     # map peak indices -> real frame numbers -> seconds
     peak_frames = np.array(frame_nums)[peaks]

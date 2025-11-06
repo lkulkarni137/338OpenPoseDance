@@ -779,13 +779,14 @@ if (UNIX OR APPLE)
 	-DCMAKE_CXX_STANDARD=14
 	-DCMAKE_CXX_STANDARD_REQUIRED=ON
 	-DCMAKE_CXX_EXTENSIONS=OFF
+  -DBoost_NO_BOOST_CMAKE=ON
+  -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=OFF
 
           -DBUILD_docs=OFF
           -DBUILD_python=OFF
           -DBUILD_python_layer=OFF
           -DUSE_LEVELDB=OFF 
-	  -DCMAKE_POLICY_DEFAULT_CMP0167=NEW
-	  -DBoost_DIR=/opt/homebrew/Cellar/boost/1.89.0/lib/cmake/Boost-1.89.0
+	  -DCMAKE_POLICY_DEFAULT_CMP0167=OLD
 	  -DBoost_COMPONENTS=filesystem;thread;regex;system
 	  -DBoost_USE_STATIC_LIBS=OFF
    	 -DBoost_USE_MULTITHREADED=ON
@@ -796,7 +797,7 @@ if (UNIX OR APPLE)
 	  -DCMAKE_PREFIX_PATH=/opt/homebrew
           -DUSE_LMDB=OFF
           -DUSE_OPENCV=OFF)
-          # -DOpenCV_DIR=${OpenCV_DIR})
+          # -DOpenCV_DIR=${OpenCV_DIR}
       else (USE_MKL)
         ExternalProject_Add(openpose_lib
           SOURCE_DIR ${CAFFE_URL}
@@ -832,7 +833,7 @@ if (UNIX OR APPLE)
           -DUSE_LEVELDB=OFF
           -DUSE_LMDB=OFF
           -DUSE_OPENCV=OFF)
-          # -DOpenCV_DIR=${OpenCV_DIR})
+          # -DOpenCV_DIR=${OpenCV_DIR}
       endif (USE_MKL)
 
       ExternalProject_Get_Property(openpose_lib install_dir)
