@@ -111,6 +111,8 @@ If you want to use OpenPose without installing or writing any code, simply [down
 
 Otherwise, you could [build OpenPose from source](doc/installation/0_index.md#compiling-and-running-openpose-from-source). See the [installation doc](doc/installation/0_index.md) for all the alternatives.
 
+For more detailed instructions on installation for Mac OS machines, [see this doc](doc/installation/mac_installation.md).
+
 
 
 ## Quick Start Overview
